@@ -1,0 +1,47 @@
+
+body{
+    background-color: rgb(202, 187, 187);
+}
+
+.containeur{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+fieldset{
+    color: lightgray;
+    background-color: gray;
+    border-radius: 50px;
+}
+
+legend{
+    color: rgb(255, 255, 255);
+    font-weight: 1000;
+    font-size: 150%;
+    background-color: gainsboro;
+    border-radius: 50px;
+}
+
+.bouton{
+    justify-content: center;
+    margin-left: 40%;
+}
+
+h1{
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    padding: 15px;
+}
+
+ul li a {
+    color: white;
+    font-size: larger;
+}
