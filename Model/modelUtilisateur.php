@@ -38,3 +38,42 @@ function connectUser($pdo){
     }
 }
 
+function updateUser($pdo)
+{
+    try {
+        $query = "UPDATE utilisateurs SET utilisateurNom = :utilisateurNom, utilisateurPrenom = :utilisateurPrenom, utilisateurMotDePasse = :utilisateurMotDePasse, utlisateurEmail = :utilisateurEmail WHERE id = :id";
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurNom' => $_POST['nom'],
+            'utilisateurPrenom' => $_POST['prenom'],
+            'utilisateurEmail' => $_POST['email'],
+            'utilisateurMotDePasse' => $_POST['mot_de_passe'],
+            'id' => $_SESSION["user"]->id
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+function reloadSession($pdo)
+{
+    try {
+        $query = "select * from utilisateurs where id = :id";
+        $chercheUser = $pdo->prepare($query);
+        $chercheUser->execute([
+            'id' => $_SESSION["user"]->id
+        ]);
+        $user=$chercheUser -> fetch();
+        if ($user) {
+            $_SESSION['user']=$user;
+        }
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+
+
