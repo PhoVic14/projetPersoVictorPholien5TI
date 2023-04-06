@@ -24,6 +24,20 @@ function deleteAllEnchereFromUser($pdo)
         $deleteAllEnchereFromUser->execute([
             'utilisateurId' => $_SESSION["user"]->utilisateurId
         ]);
+
+        $query = "delete from produit where utilisateurId = :utilisateurId";
+        $deleteAllEnchereFromUser = $pdo->prepare($query);
+        $deleteAllEnchereFromUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+
+        $query = "delete from produit_categorie where utilisateurId = :utilisateurId";
+        $deleteAllEnchereFromUser = $pdo->prepare($query);
+        $deleteAllEnchereFromUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+
+        
     }
     catch(PDOException $e){
         $message = $e->getMessage();
