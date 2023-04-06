@@ -16,3 +16,20 @@ function voirAllProduit($pdo)
     }
 }
 
+function deleteAllEnchereFromUser($pdo)
+{
+    try{
+        $query = "delete from enchere where utilisateurId = :utilisateurId";
+        $deleteAllEnchereFromUser = $pdo->prepare($query);
+        $deleteAllEnchereFromUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+    }
+    catch(PDOException $e){
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+
+

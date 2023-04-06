@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model/modelUtilisateur.php";
+require_once "Model/modelEnchere.php";
 
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -33,8 +34,13 @@ elseif ($uri === "/deconnexion") {
     header('location:/');
 }elseif ($uri === "/profil") {
     require_once "Templates/Utilisateurs/profil.php";
-}
 
+} elseif ($uri === "/deleteUser") {
+    deleteAllEnchereFromUser($pdo);
+    deleteUser($pdo);
+    session_destroy();
+    header("location:/");
+}
 function verifData(){
     foreach ($_POST as $key => $value) {
         if (empty(str_replace(' ', '', $value))){

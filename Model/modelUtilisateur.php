@@ -41,14 +41,29 @@ function connectUser($pdo){
 function updateUser($pdo)
 {
     try {
-        $query = "UPDATE utilisateurs SET utilisateurNom = :utilisateurNom, utilisateurPrenom = :utilisateurPrenom, utilisateurMotDePasse = :utilisateurMotDePasse, utlisateurEmail = :utilisateurEmail WHERE id = :id";
+        $query = "UPDATE utilisateur SET utilisateurNom = :utilisateurNom, utilisateurPrenom = :utilisateurPrenom, utilisateurMotDePasse = :utilisateurMotDePasse, utlisateurEmail = :utilisateurEmail WHERE utilisateurId = :utilisateurId";
         $updateUser = $pdo->prepare($query);
         $updateUser->execute([
             'utilisateurNom' => $_POST['nom'],
             'utilisateurPrenom' => $_POST['prenom'],
             'utilisateurEmail' => $_POST['email'],
             'utilisateurMotDePasse' => $_POST['mot_de_passe'],
-            'id' => $_SESSION["user"]->id
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+function deleteUser($pdo)
+{
+    try {
+        $query = 'delete from utilisateur where utilisateurId = :utilisateurId';
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
         ]);
         reloadSession($pdo);
     } catch (PDOException $e) {
@@ -60,10 +75,10 @@ function updateUser($pdo)
 function reloadSession($pdo)
 {
     try {
-        $query = "select * from utilisateurs where id = :id";
+        $query = "select * from utilisateur where utilisateurId = :utilisateurId";
         $chercheUser = $pdo->prepare($query);
         $chercheUser->execute([
-            'id' => $_SESSION["user"]->id
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
         ]);
         $user=$chercheUser -> fetch();
         if ($user) {
