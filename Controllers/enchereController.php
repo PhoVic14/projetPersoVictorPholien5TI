@@ -8,3 +8,15 @@ if ($uri === "/index.php" || $uri === "/"){
 }elseif ($uri === "/voirEnchere") {
     require_once "Templates/voirEnchere/voirEnchere.php";
 }
+
+require_once "Templates/Encheres/ajoutProduit.php";
+
+if ($uri === "/connexion") {
+    if(isset($_POST["btnEnvoi"])) {
+        $messageError = verifData();
+        if(!isset($messageError)){
+            connectUser($pdo);
+            header('location:/');
+        }
+    }
+}

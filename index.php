@@ -27,6 +27,7 @@
     <header>
         <ul class="flex space-evenly">
             <li class="menu"><a href="/">Home</a></li>
+            <li  class="menu"><a href="ajoutProduit">Ajouter un produit</a></li>
             <li  class="menu"><a href="profil">Page profil</a></li>
             <li  class="menu"><a href="inscription">Inscription</a></li>
                 <?php if(isset($_SESSION['user'])) : ?>
@@ -41,6 +42,7 @@
         <?php 
             require_once "Controllers/enchereController.php";
             require_once "Controllers/utilisateursController.php";
+            require_once "Templates/Encheres/ajoutProduit.php";
         ?>
     </main>
     <footer>
