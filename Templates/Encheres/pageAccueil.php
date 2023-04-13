@@ -1,12 +1,11 @@
-<div class= "center">
-    
+<div class="center">
     <h1>Les produits</h1>
-
-    
-
-            <?php foreach($produit as $produit) : ?>
-                <p><?= $produit->produitTitre ?>
-                <img src=<?= $produit->produitImage ?>>
-
-            <?php endforeach ?>
+</div>
+<div class="flex wrap">
+  <?php foreach ($produit as $produit) : ?>
+    <div class="produit">
+      <img src=<?= $produit->produitImage ?>>
+      <p><?= $produit->produitTitre ?></p>
+    </div>
+  <?php endforeach ?>
 </div>

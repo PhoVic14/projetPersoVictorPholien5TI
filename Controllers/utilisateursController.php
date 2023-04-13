@@ -35,6 +35,8 @@ elseif ($uri === "/deconnexion") {
 }elseif ($uri === "/profil") {
     require_once "Templates/Utilisateurs/profil.php";
 
+
+
 } elseif ($uri === "/deleteUser") {
     deleteAllEnchereFromUser($pdo);
     deleteUser($pdo);

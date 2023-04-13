@@ -60,6 +60,18 @@ function updateUser($pdo)
 function deleteUser($pdo)
 {
     try {
+        $query = 'delete from categorie where utilisateurId = :utilisateurId';
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+    
+    try {
         $query = 'delete from utilisateur where utilisateurId = :utilisateurId';
         $updateUser = $pdo->prepare($query);
         $updateUser->execute([
@@ -70,6 +82,41 @@ function deleteUser($pdo)
         $message = $e->getMessage();
         die($message);
     }
+    try {
+        $query = 'delete from produit where utilisateurId = :utilisateurId';
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+    try {
+        $query = 'delete from produit_categorie where utilisateurId = :utilisateurId';
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+    
+    try {
+        $query = 'delete from enchere where utilisateurId = :utilisateurId';
+        $updateUser = $pdo->prepare($query);
+        $updateUser->execute([
+            'utilisateurId' => $_SESSION["user"]->utilisateurId
+        ]);
+        reloadSession($pdo);
+    } catch (PDOException $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+    
 }
 
 function reloadSession($pdo)

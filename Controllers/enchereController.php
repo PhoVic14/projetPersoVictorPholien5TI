@@ -9,14 +9,6 @@ if ($uri === "/index.php" || $uri === "/"){
     require_once "Templates/voirEnchere/voirEnchere.php";
 }
 
+elseif ($uri === "/ajoutProduit") {
 require_once "Templates/Encheres/ajoutProduit.php";
-
-if ($uri === "/connexion") {
-    if(isset($_POST["btnEnvoi"])) {
-        $messageError = verifData();
-        if(!isset($messageError)){
-            connectUser($pdo);
-            header('location:/');
-        }
-    }
 }
