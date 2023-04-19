@@ -9,6 +9,7 @@ if ($uri === "/index.php" || $uri === "/"){
     require_once "Templates/voirEnchere/voirEnchere.php";
 }
 
+
 elseif ($uri === "/ajoutProduit") {
 require_once "Templates/Encheres/ajoutProduit.php";
 }

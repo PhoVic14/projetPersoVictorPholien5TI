@@ -2,7 +2,7 @@
 <?php
     session_start();
     require_once "Config/databaseConnection.php";
-    /*try {
+    /*try { 
         $query = "SELECT * FROM utilisateurs";
         $ajoute = $dbh -> prepare($query);
         $ajoute -> execute();

@@ -6,6 +6,7 @@
     <div class="produit">
       <img src=<?= $produit->produitImage ?>>
       <p><?= $produit->produitTitre ?></p>
+      <a href="selectProduit">
     </div>
   <?php endforeach ?>
 </div>
