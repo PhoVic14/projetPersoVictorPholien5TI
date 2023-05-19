@@ -160,8 +160,9 @@ body {
     margin: 0 auto;
     background-color: #fff;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    
   }
   
   fieldset {
@@ -202,10 +203,12 @@ body {
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    justify-content: center;
   }
   
   input[type="submit"]:hover {
     background-color: #3e8e41;
+    justify-content: center;
   }
   
   .error {
@@ -219,6 +222,13 @@ body {
     }
   }
   
-  header{
-    width: 80px;
+  .connexion{
+    margin-top: 10px;
   }
+
+  .remplir{
+    width: 50%;
+    justify-content: center;
+    margin-left: 25%;
+  }
+

@@ -4,24 +4,21 @@
         <ol>
             <div>
                 <li>Nom</li>
-                    <p><?= $enchere->enchereNom ?></p>
+                    <p><?= $enchere->produitTitre ?></p>
             </div>
             <div>
-                <li>Prix</li>
-                <p><?= $enchere->encherePrix ?></p>
-            </div>
-            <div>
-                <li>Date</li>
-                <p><?= $enchere->enchereDate ?></p>
+                <li>Note</li>
+                <p><?= $enchere->produitNote ?></p>
             </div>
             <div>
                 <li>Description</li>
-                <p><?= $enchere->enchereDescription?></p>
+                <p><?= $enchere->produitDescription?></p>
             </div>
             <div>
                 <li>image</li>
-                <img id="enchereImage" src=<?= $enchere->$enchereImage?> alt="">
+                <img src=<?= $enchere->produitImage ?>>
             </div>
         </ol>
     </div>
+    <a href="deleteEnchere?id=<?= $enchere->produitId ?>">Supprimer</a>
 </div>

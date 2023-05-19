@@ -3,7 +3,7 @@
 function createUser($pdo)
 {
     try{
-        $query = "insert into utilisateur (utilisateurPseudo, utilisateurEmail, utilisateurPrenom, utilisateurNom, utilisateurDateDeNaissance, utilisateurMotDePasse ) values (:utilisateurPseudo, :utilisateurEmail, :utilisateurPrenom, :utilisateurNom, :utilisateurDateDeNaissance, :utilisateurMotDePasse)"; //nom des colonnes utilisateur
+        $query = "insert into utilisateur (utilisateurPseudo, utilisateurEmail, utilisateurPrenom, utilisateurNom, utilisateurDateDeNaissance, utilisateurMotDePasse, utilisateurRole ) values (:utilisateurPseudo, :utilisateurEmail, :utilisateurPrenom, :utilisateurNom, :utilisateurDateDeNaissance, :utilisateurMotDePasse, \"utilisateur\")"; //nom des colonnes utilisateur
         $newUser = $pdo->prepare($query);
         $newUser->execute([
             'utilisateurNom' => $_POST["nom"],
@@ -41,13 +41,14 @@ function connectUser($pdo){
 function updateUser($pdo)
 {
     try {
-        $query = "UPDATE utilisateur SET utilisateurNom = :utilisateurNom, utilisateurPrenom = :utilisateurPrenom, utilisateurMotDePasse = :utilisateurMotDePasse, utlisateurEmail = :utilisateurEmail WHERE utilisateurId = :utilisateurId";
+        $query = "UPDATE utilisateur SET utilisateurPseudo = :utilisateurPseudo, utilisateurNom = :utilisateurNom, utilisateurPrenom = :utilisateurPrenom, utilisateurMotDePasse = :utilisateurMotDePasse, utilisateurEmail = :utilisateurEmail WHERE utilisateurId = :utilisateurId";
         $updateUser = $pdo->prepare($query);
         $updateUser->execute([
+            'utilisateurPseudo' => $_POST['pseudo'],
             'utilisateurNom' => $_POST['nom'],
             'utilisateurPrenom' => $_POST['prenom'],
             'utilisateurEmail' => $_POST['email'],
-            'utilisateurMotDePasse' => $_POST['mot_de_passe'],
+            'utilisateurMotDePasse' => $_POST['mdp'],
             'utilisateurId' => $_SESSION["user"]->utilisateurId
         ]);
         reloadSession($pdo);
@@ -59,17 +60,7 @@ function updateUser($pdo)
 
 function deleteUser($pdo)
 {
-    try {
-        $query = 'delete from categorie where utilisateurId = :utilisateurId';
-        $updateUser = $pdo->prepare($query);
-        $updateUser->execute([
-            'utilisateurId' => $_SESSION["user"]->utilisateurId
-        ]);
-        reloadSession($pdo);
-    } catch (PDOException $e) {
-        $message = $e->getMessage();
-        die($message);
-    }
+    
     
     try {
         $query = 'delete from utilisateur where utilisateurId = :utilisateurId';

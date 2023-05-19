@@ -9,5 +9,5 @@
         <p><?= $_SESSION["user"]->utilisateurMotDePasse ?> </p>
     <p>Pseudo : </p>
         <p><?= $_SESSION["user"]->utilisateurPseudo ?> </p>
-    <a href="updateUser">Modifier</a>
+    <a href="inscription">Modifier</a>
     <a href="deleteUser">Supprimer</a>
