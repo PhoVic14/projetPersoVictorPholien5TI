@@ -1,7 +1,6 @@
 <h1>Connexion</h1>
     <form action="" method="post">
         <fieldset>
-            <legend>Se connecter</legend>
             <div class="remplir">
                 <label for="pseudo"> Entrez votre pseudo : </label>
                 <input name="pseudo" type="text" id="pseudo" >
@@ -13,12 +12,9 @@
                 <?php if(isset($messageError["mdp"])) : ?> <p> <?= $messageError["mdp"] ?> </p> <?php endif ?>
             </div>
         </fieldset>
-        <div class="connexion remplir">
-        <fieldset>
+        <div class="connexion remplir add">
             <div class="mid">
-            <legend>Bouton Connexion</legend>
             <input type="submit" value="Se connecter" name="btnEnvoi">
-        </fieldset>
-                </div>
             </div>
+        </div>
     </form>

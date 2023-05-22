@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="CSS/style.css">
-<h1>Inscription</h1>
     <form action="" method="post">
         <fieldset>
         <legend><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Inscription<?php endif ?></legend>
@@ -34,7 +33,7 @@
                 <?php if(isset($messageError["naissance"])) : ?> <p> <?= $messageError["naissance"] ?> </p> <?php endif ?>
             </div> 
         </fieldset>
-        <div>
-            <button name="<?= isset($_SESSION['user']) ? 'btnModifier' : 'btnEnvoi' ?>" class="btn btn-primary" value="1"><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Envoyer<?php endif ?></button>
+        <div class="add connexion">
+            <button type="submit" name="<?= isset($_SESSION['user']) ? 'btnModifier' : 'btnEnvoi' ?>" class="btn btn-primary" value="1"><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Envoyer<?php endif ?></button>
         </div>
 </form>

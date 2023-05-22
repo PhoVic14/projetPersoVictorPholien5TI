@@ -1,5 +1,5 @@
 <h1>Enchere</h1>
-<div class="flex space-around">
+<div class="flex space-around essaye">
     <div>
         <ol>
             <div>
@@ -20,5 +20,5 @@
             </div>
         </ol>
     </div>
-    <a href="deleteEnchere?id=<?= $enchere->produitId ?>">Supprimer</a>
 </div>
+    <a href="deleteEnchere?id=<?= $enchere->produitId ?>">Supprimer</a>
