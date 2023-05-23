@@ -11,9 +11,10 @@
                 <p><?= $_SESSION["user"]->utilisateurMotDePasse ?> </p>
             <p>Pseudo : </p>
                 <p><?= $_SESSION["user"]->utilisateurPseudo ?> </p>
+    
+        <div class="jsp">
+                <a href="inscription">Modifier</a>
+                <a href="deleteUser">Supprimer</a>
     </div>
-    <div class="jsp">
-            <a href="inscription">Modifier</a>
-            <a href="deleteUser">Supprimer</a>
     </div>
         

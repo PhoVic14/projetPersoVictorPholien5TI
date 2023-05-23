@@ -36,20 +36,20 @@
 <body>
 
     <header>
-        <ul class="flex space-evenly">
-            <li class="menu"><a href="/">Home</a></li>
-                <?php if(isset($_SESSION['user'])) : ?>
-                    <li  class="menu"><a href="profil">Page profil</a></li>
-                    <li  class="menu"><a href="ajoutProduit">Ajouter un produit</a></li>
-                    <li  class="menu"><a href="deconnexion">Déconnexion</a></li>
-                <?php else : ?>
-                    <li  class="menu"><a href="connexion">Connexion</a></li>
-                    <li  class="menu"><a href="inscription">Inscription</a></li>
-                <?php endif ?>
-
-                
-            </li>
-        </ul>
+        <div class="nos">
+            <ul class="flex space-evenly">
+                <li class="menu"><a href="/">Home</a></li>
+                    <?php if(isset($_SESSION['user'])) : ?>
+                        <li  class="menu"><a href="profil">Page profil</a></li>
+                        <li  class="menu"><a href="ajoutProduit">Ajouter un produit</a></li>
+                        <li  class="menu"><a href="deconnexion">Déconnexion</a></li>
+                    <?php else : ?>
+                        <li  class="menu"><a href="connexion">Connexion</a></li>
+                        <li  class="menu"><a href="inscription">Inscription</a></li>
+                    <?php endif ?>
+                </li>
+            </ul>
+        </div>
     </header>
     <main>
         <?php 

@@ -33,7 +33,7 @@
             </fieldset>
         
             <div class="Add">
-                <button type="submit" name="btnEnvoi" class="btn btn-primary" value="envoyer"><?php if(isset($_SESSION["user"])) : ?>Ajouter <?php else : ?>Envoyer<?php endif ?></button>
+                <button class="butters" type="submit" name="btnEnvoi" class="btn btn-primary" value="envoyer"><?php if(isset($_SESSION["user"])) : ?>Ajouter <?php else : ?>Envoyer<?php endif ?></button>
             </div>
         </div>
 </form>

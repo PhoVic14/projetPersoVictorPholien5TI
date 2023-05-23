@@ -9,7 +9,7 @@
             </div>
             <div class="remplir">
                 <label for="email">Entrez votre Email :</label>
-                <input name="email" type="email" id="email" placeholder="Votre email" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurEmail ?><?php endif ?>">
+                <input name="email" type="email" id="email" value="<?php if(isset($_SESSION["user"])) : ?><?= $_SESSION["user"]->utilisateurEmail ?><?php endif ?>">
                 <?php if(isset($messageError["email"])) : ?> <p> <?= $messageError["email"] ?> </p> <?php endif ?>
             </div>
             <div class="remplir">
@@ -34,6 +34,6 @@
             </div> 
         </fieldset>
         <div class="add connexion">
-            <button type="submit" name="<?= isset($_SESSION['user']) ? 'btnModifier' : 'btnEnvoi' ?>" class="btn btn-primary" value="1"><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Envoyer<?php endif ?></button>
+            <button class="butters" name="<?= isset($_SESSION['user']) ? 'btnModifier' : 'btnEnvoi' ?>" class="btn btn-primary" value="1" type="submit"><?php if(isset($_SESSION["user"])) : ?>Modifier<?php else : ?>Envoyer<?php endif ?></button>
         </div>
 </form>
