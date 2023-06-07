@@ -4,7 +4,7 @@
 <div class="flex wrap mer">
   <?php foreach ($produit as $produit) : ?>
     <div class="produit">
-      <img src=<?= $produit->produitImage ?>>
+      <img src="<?= $produit->produitImage ?>?y=<?= rand(1,1000) ?>">
       <p><?= $produit->produitTitre ?></p>
       <a class="" href="selectProduit?id=<?= $produit -> produitId?>">Voir Produit</a>
     </div>

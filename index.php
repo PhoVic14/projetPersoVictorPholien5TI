@@ -55,6 +55,7 @@
         <?php 
             require_once "Controllers/enchereController.php";
             require_once "Controllers/utilisateursController.php";
+            require_once "Controllers/categorieController.php";
         ?>
     </main>
     <footer>

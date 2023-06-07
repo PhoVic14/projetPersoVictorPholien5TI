@@ -21,4 +21,5 @@
         </ol>
     </div>
 </div>
+<a href="modifierProduit?id=<?= $enchere->produitId ?>">Modifier</a>
     <a href="deleteEnchere?id=<?= $enchere->produitId ?>">Supprimer</a>

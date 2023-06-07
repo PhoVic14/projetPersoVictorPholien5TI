@@ -89,15 +89,15 @@ function deleteEnchere($pdo)
 function updateEnchere($pdo)
 {
     try {
-        $query = "UPDATE produit SET produitTitre = :produitTitre, produitImage = :produitImage, produitNote = :produitNote, produitDescription = :produitDescription WHERE utilisateurId = :utilisateurId";
+        $query = "UPDATE produit SET produitTitre = :produitTitre, produitImage = :produitImage, produitNote = :produitNote, produitDescription = :produitDescription WHERE produitId = :produitId";
         $updateUser = $pdo->prepare($query);
         $updateUser->execute([
             'produitTitre' => $_POST['titre'],
             'produitImage' => $_POST['image'],
             'produitNote' => $_POST['note'],
             'produitDescription' => $_POST['description'],
+            'produitId' => $_GET['id']
         ]);
-        reloadSession($pdo);
     } catch (PDOException $e) {
         $message = $e->getMessage();
         die($message);
